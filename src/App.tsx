@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+
 import Homepage from './pages/Homepage';
 import Product from './pages/Product';
 import Pricing from './pages/Pricing';
@@ -7,6 +8,7 @@ import PageNotFound from './pages/PageNotFound';
 import AppLayout from './pages/AppLayout/AppLayout';
 import Login from './pages/Login';
 import CityList from './components/CityList/CityList';
+import CountriesList from './components/CountriesList/CountriesList';
 
 export interface CityType {
   cityName: string;
@@ -58,7 +60,10 @@ function App() {
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
-          <Route path="countries" element={<p>List of countries</p>} />
+          <Route
+            path="countries"
+            element={<CountriesList cities={cities} isLoading={isLoading} />}
+          />
           <Route path="form" element={<p>Form</p>} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
